@@ -124,19 +124,11 @@ Withdrawals from the pool remain enabled; only deposits and swaps are halted.
 
 Completed:
 
-- KHYPE-USDC pool halted (`poolShutdown = true`); HYPE-KHYPE pool (same oracle) paused as a precaution.
+- KHYPE-USDC pool halted.
 - Full on-chain trace and fund-flow analysis completed (this document).
-
-Required before kHYPE pools can reopen:
-
-1. **NAV-anchored lower bound in `KHypeOracle`.** Reject or clamp any DEX-derived rate more than a small tolerance (e.g., 1–2%) below the Kinetiq `StakingAccountant` redemption rate, mirroring the existing upper cap. This single change makes the observed attack impossible: the manipulated rate (−89%) would have been clamped to ~NAV.
-2. **TWAP or multi-block observation.** Same-block spot from manipulable AMM pools should never be the sole price input for swap execution.
-3. **Revert instead of clamping output to reserves** in `_calculateSwapAmount`, so an oversized swap fails rather than silently emptying the pool.
-4. **Divergence check against an external anchor**, not only between correlated sources: the four source pools share liquidity dynamics and can be moved together; comparing them to NAV × HYPE spot catches lockstep manipulation.
-5. Review all other oracle-priced pools for the same pattern (spot-only sources, one-sided bounds, reserve clamping) before considering the incident closed.
 
 ## 8. Recovery actions
 
-- Attacker EOA, exploit contracts, and all bridge transactions identified (Section 5); reports to be filed with chain-analytics providers and relevant law enforcement.
-- Circle notified of the CCTP exit path; the immediate USDC→DAI conversion on arrival limits freeze options for the bridged funds, but the pre-attack funding trail on Ethereum is actionable for attribution.
+- Attacker EOA, exploit contracts, and all bridge transactions identified (Section 5).
+- Pre-attack funding trail on Ethereum is actionable for attribution.
 - Affected LPs have been identified and will be contacted directly regarding reimbursement.
