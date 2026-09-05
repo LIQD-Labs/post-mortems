@@ -4,7 +4,7 @@
 - **Affected contract:** LiquidCore KHYPE-USDC pool — `0x158F5919A3C65C201A02CB2fEE7421F7B78F3b1e` (HyperEVM)
 - **Total loss:** ~$155,000 (25,622.41 USDC + 1,473.58 kHYPE shortfall across 5 LP positions)
 - **Attacker profit:** 146,577.47 USDC (net, after fees), bridged to Ethereum and converted to DAI
-- **Status:** Pool halted. HYPE-KHYPE pool paused as a precaution (not exploited). All other pools unaffected.
+- **Status:** Pool halted. The HYPE-KHYPE pool, which used the same oracle, was already shut down before the incident and was not operational. All other pools unaffected.
 
 ---
 
@@ -29,7 +29,7 @@ The attacker then swapped USDC into the LiquidCore pool at the manipulated price
 | 13:59:53 | 45099840 | 5,284.54 USDC bridged via secondary route |
 | 14:32:00 | 45101800 | **Attack 4** — 71.26 kHYPE drained for 887.18 USDC; profit 3,333.98 USDC |
 | 14:33:05 | 45101866 | 3,333.98 USDC bridged via secondary route |
-| ~15:23 | — | Team halts KHYPE-USDC pool and pauses HYPE-KHYPE pool (`poolShutdown = true` deployed) |
+| ~15:23 | — | Team halts KHYPE-USDC pool (`poolShutdown = true` deployed) |
 
 ## 3. Root cause
 
