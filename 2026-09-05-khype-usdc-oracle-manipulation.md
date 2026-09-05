@@ -1,10 +1,10 @@
 # Post-Mortem: KHYPE-USDC Pool Oracle Manipulation Exploit
 
-**Date of incident:** September 5, 2026
-**Affected contract:** LiquidCore KHYPE-USDC pool — `0x158F5919A3C65C201A02CB2fEE7421F7B78F3b1e` (HyperEVM)
-**Total loss:** ~$155,000 (25,622.41 USDC + 1,473.58 kHYPE shortfall across 5 LP positions)
-**Attacker profit:** 146,577.47 USDC (net, after fees), bridged to Ethereum and converted to DAI
-**Status:** Pool halted. HYPE-KHYPE pool paused as a precaution (not exploited). All other pools unaffected.
+- **Date of incident:** September 5, 2026
+- **Affected contract:** LiquidCore KHYPE-USDC pool — `0x158F5919A3C65C201A02CB2fEE7421F7B78F3b1e` (HyperEVM)
+- **Total loss:** ~$155,000 (25,622.41 USDC + 1,473.58 kHYPE shortfall across 5 LP positions)
+- **Attacker profit:** 146,577.47 USDC (net, after fees), bridged to Ethereum and converted to DAI
+- **Status:** Pool halted. HYPE-KHYPE pool paused as a precaution (not exploited). All other pools unaffected.
 
 ---
 
@@ -104,8 +104,8 @@ Total received on Ethereum: **146,576.43 DAI**. The EOA also received 1,427 DAI 
 
 ## 6. Impact on LPs
 
-Pool state before attack 1 (block 45098505): 64,995.42 USDC + 1,500.46 kHYPE (~$196,330).
-Pool state after halt: 39,372.90 USDC + 22.43 kHYPE (~$41,340).
+- Pool state before attack 1 (block 45098505): 64,995.42 USDC + 1,500.46 kHYPE (~$196,330)
+- Pool state after halt: 39,372.90 USDC + 22.43 kHYPE (~$41,340)
 
 Five LP positions were affected. Per-holder shortfall (pre-hack entitlement incl. unclaimed fees, minus current withdrawable value):
 
